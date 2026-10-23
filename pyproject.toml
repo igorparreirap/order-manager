@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "order-manager"
+version = "2.0.0"
+description = "Desktop order management for small wholesale businesses: orders, customers, products, PDF, thermal printing and WhatsApp."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Igor Parreira de Paula" }]
+
+keywords = ["pyqt5", "desktop", "orders", "sqlite", "reportlab", "escpos"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Environment :: X11 Applications :: Qt",
+    "Operating System :: Microsoft :: Windows",
+    "Natural Language :: Portuguese (Brazilian)",
+]
+dependencies = [
+    "PyQt5>=5.15",
+    "PyQt-Fluent-Widgets>=1.5,<2",
+    "reportlab>=4.0",
+    "python-escpos>=3.0",
+    "pyserial>=3.5",
+    "requests>=2.31",
+    "platformdirs>=4.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6"]
+
+[project.urls]
+Repository = "https://github.com/igorparreirap/order-manager"
+Changelog = "https://github.com/igorparreirap/order-manager/blob/main/CHANGELOG.md"
+
+[project.scripts]
+order-manager = "order_manager.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+order_manager = ["assets/*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "N", "RUF"]
+ignore = [
+  "RUF001", "RUF002", "RUF003",  # Portuguese text legitimately uses accented characters
+  "N814",                        # `FluentIcon as FIF` is the convention of PyQt-Fluent-Widgets
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["order_manager"]
+omit = ["src/order_manager/ui/*", "src/order_manager/__main__.py"]
