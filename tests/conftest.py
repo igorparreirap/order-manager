@@ -1,12 +1,25 @@
 from __future__ import annotations
 
+import logging
 from datetime import date
 
 import pytest
 
+from order_manager.config import SettingsStore
+from order_manager.context import AppContext
 from order_manager.domain.models import Address, Order, OrderItem, PaymentMethod, Product
 from order_manager.storage import Database
 
+
+@pytest.fixture(autouse=True)
+def isolated_home(tmp_path, monkeypatch):
+    """Never touch the real user data directory during tests."""
+    monkeypatch.setenv("ORDER_MANAGER_HOME", str(tmp_path / "home"))
+    yield
+    root = logging.getLogger()  # close log files opened by the CLI entry point
+    for handler in root.handlers[:]:
+        handler.close()
+        root.removeHandler(handler)
 
 
 @pytest.fixture
@@ -14,6 +27,11 @@ def db():
     database = Database(":memory:")
     yield database
     database.close()
+
+
+@pytest.fixture
+def ctx(db, tmp_path):
+    return AppContext.create(db=db, settings=SettingsStore(tmp_path / "settings.json"))
 
 
 @pytest.fixture
