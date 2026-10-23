@@ -5,6 +5,15 @@ from datetime import date
 import pytest
 
 from order_manager.domain.models import Address, Order, OrderItem, PaymentMethod, Product
+from order_manager.storage import Database
+
+
+
+@pytest.fixture
+def db():
+    database = Database(":memory:")
+    yield database
+    database.close()
 
 
 @pytest.fixture
