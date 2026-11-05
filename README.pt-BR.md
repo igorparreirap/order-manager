@@ -21,12 +21,13 @@
 
 ## Sobre o projeto
 
-Criei o Order Manager para resolver um problema real: uma distribuidora de pães congelados anotava pedidos
-à mão e depois repassava tudo para o WhatsApp e para a impressora. O sistema concentra esse fluxo em uma
+Criei o Order Manager como freelance para resolver um problema real: o revendedor de uma distribuidora de pães
+congelados anotava pedidos à mão e depois repassava tudo para o WhatsApp e para a impressora. Ele usa o sistema
+até hoje. O sistema concentra esse fluxo em uma
 única tela. O vendedor digita o cliente, busca os produtos pelo código ou pelo nome, e o pedido sai em PDF,
 no cupom da impressora térmica ou em uma mensagem pronta no WhatsApp.
 
-Esta é a **versão 2**, uma reescrita completa da primeira versão que usei em produção. O
+Esta é a **versão 2**, uma reescrita completa da primeira versão que foi para produção. O
 [CHANGELOG](CHANGELOG.md) lista os bugs corrigidos e o que mudou na arquitetura.
 
 > Os dados deste repositório (clientes, produtos e preços) são **fictícios**.

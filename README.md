@@ -21,12 +21,12 @@
 
 ## About
 
-I built Order Manager to solve a real problem: a frozen-bread distributor wrote orders by hand and then
-re-typed them into WhatsApp and a receipt printer. The app puts that whole workflow on one screen. The
+I built Order Manager as a freelance project to solve a real problem: a sales representative of a frozen-bread
+distributor wrote orders by hand and then re-typed them into WhatsApp and a receipt printer. He still uses it every day. The app puts that whole workflow on one screen. The
 salesperson types the customer, finds products by code or name, and the order goes out as a PDF, a
 thermal-printer receipt or a ready-to-send WhatsApp message.
 
-This is **version 2**, a complete rewrite of the first version I used in production. The
+This is **version 2**, a complete rewrite of the first version that went into production. The
 [CHANGELOG](CHANGELOG.md) lists the bugs it fixed and the architectural changes. The UI is in Brazilian
 Portuguese, since that is who uses it; the code and documentation are in English.
 
