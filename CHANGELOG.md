@@ -6,7 +6,7 @@ All notable changes to this project are documented here. The format follows
 
 ## [2.0.0] - 2026-10-23
 
-Complete rewrite of version 1, which was used in production by a frozen-food distributor.
+Complete rewrite of version 1, a freelance project built for a sales representative of a frozen-bread distributor.
 
 ### Added
 - SQLite database with versioned migrations (previously JSON files).
