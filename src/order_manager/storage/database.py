@@ -1,8 +1,7 @@
 """SQLite connection management and schema migrations.
 
 A single :class:`Database` instance is shared by the whole application, so every
-screen reads and writes the same data (the previous JSON version kept one in-memory
-copy per screen, and the last screen to save silently overwrote the others).
+screen reads and writes the same data and no screen can overwrite another's changes.
 """
 
 from __future__ import annotations
